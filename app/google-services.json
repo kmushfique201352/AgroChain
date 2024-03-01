@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "545018771587",
+    "project_id": "agro-chain-bc156",
+    "storage_bucket": "agro-chain-bc156.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545018771587:android:a94c2e53fd1873db6383b6",
+        "android_client_info": {
+          "package_name": "com.example.agrochain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWsMXm0_Z5XnGRg67iWmBmQXI9v6jsQ5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
