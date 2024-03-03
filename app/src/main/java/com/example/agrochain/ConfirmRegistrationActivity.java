@@ -131,6 +131,7 @@ public class ConfirmRegistrationActivity extends AppCompatActivity {
         if (editTextSupervisor.getVisibility() == View.VISIBLE) {
             userData.put("supervisor", editTextSupervisor.getText().toString());
         }
+        userData.put("profilePictureUrl", "https://example.com/path/to/default/profile/picture.png");
     }
 
     private void saveUserDetails(String userId) {

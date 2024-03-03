@@ -38,4 +38,17 @@
         <item>Uttara</item>
         <item>Dhanmondi</item>
     </string-array>
+    <string name="edit_profile_picture">Edit Profile Picture</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="division">Division</string>
+    <string name="district">District</string>
+    <string name="upazila">Upazila</string>
+    <string name="phone">Phone</string>
+    <string name="nid">NID (National ID)</string>
+    <string name="product_details">Product Details</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="delete_profile">Delete Profile</string>
+    <string name="upload_image">Upload img</string>
 </resources>
