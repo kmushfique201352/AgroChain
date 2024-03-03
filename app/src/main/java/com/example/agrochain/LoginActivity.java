@@ -43,7 +43,9 @@ public class LoginActivity extends AppCompatActivity {
                 String userType = task.getResult().getString("userType");
 
                 if (password.equals(storedPassword)) {
-                    redirectToDashboard(userType);
+                    redirectToDashboard(userType,userID);
+                }else {
+                    Toast.makeText(LoginActivity.this, "Incorrect password.", Toast.LENGTH_LONG).show();
                 }
 //                else {
 //                    Toast.makeText(LoginActivity.this, "Error: Incorrect password. Expected userID: " + userID + ", password: " + storedPassword, Toast.LENGTH_LONG).show();
@@ -53,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private String mapPrefixToCollection(String prefix) {
         switch (prefix) {
@@ -67,8 +70,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void redirectToDashboard(String userType) {
-        Intent intent;
+    private void redirectToDashboard(String userType, String userID) {
+        Intent intent=null;
         switch (userType) {
             case "Farmer":
                 intent = new Intent(LoginActivity.this, FarmerDashboardActivity.class);
@@ -87,6 +90,12 @@ public class LoginActivity extends AppCompatActivity {
                 break;
             default:
                 return;
+        }
+        if (intent != null) {
+            intent.putExtra("userID", userID);
+            startActivity(intent);
+        } else {
+            Toast.makeText(LoginActivity.this, "Unknown user type: " + userType, Toast.LENGTH_LONG).show();
         }
         startActivity(intent);
     }

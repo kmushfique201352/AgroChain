@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="textColorEnabled">#000000</color> <!-- Black for enabled/writable fields -->
-    <color name="textColorDisabled">#FA8888</color> <!-- Light gray for disabled/non-writable fields -->
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="textColorEnabled">#000000</color>
+    <color name="textColorDisabled">#FA8888</color>
 </resources>
