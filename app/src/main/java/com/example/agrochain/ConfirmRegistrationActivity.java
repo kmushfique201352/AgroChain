@@ -1,6 +1,8 @@
 package com.example.agrochain;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +13,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -134,12 +140,35 @@ public class ConfirmRegistrationActivity extends AppCompatActivity {
         userData.put("profilePictureUrl", "https://example.com/path/to/default/profile/picture.png");
     }
 
-    private void saveUserDetails(String userId) {
+//    private void saveUserDetails(String userId) {
+//        String collectionPath = userTypePrefix;
+//
+//        db.collection(collectionPath).document(userId)
+//                .set(userData)
+//                .addOnSuccessListener(aVoid -> Toast.makeText(ConfirmRegistrationActivity.this, "User Details Saved Successfully", Toast.LENGTH_SHORT).show())
+//                .addOnFailureListener(e -> Toast.makeText(ConfirmRegistrationActivity.this, "Failed to Save User Details", Toast.LENGTH_SHORT).show());
+//    }
+    private void saveUserDetails(final String userId) {
         String collectionPath = userTypePrefix;
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference("user_profile_images/" + userId + ".jpg");
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.default_profile);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+        UploadTask uploadTask = storageRef.putBytes(data);
+        uploadTask.addOnSuccessListener(taskSnapshot -> {
+            taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(uri -> {
+                String imageUrl = uri.toString();
+                userData.put("profilePictureUrl", imageUrl);
 
-        db.collection(collectionPath).document(userId)
-                .set(userData)
-                .addOnSuccessListener(aVoid -> Toast.makeText(ConfirmRegistrationActivity.this, "User Details Saved Successfully", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(ConfirmRegistrationActivity.this, "Failed to Save User Details", Toast.LENGTH_SHORT).show());
+                db.collection(collectionPath).document(userId)
+                        .set(userData)
+                        .addOnSuccessListener(aVoid -> Toast.makeText(ConfirmRegistrationActivity.this, "User Details Saved Successfully with Profile Image", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(ConfirmRegistrationActivity.this, "Failed to Save User Details", Toast.LENGTH_SHORT).show());
+            });
+        }).addOnFailureListener(e -> {
+            Toast.makeText(ConfirmRegistrationActivity.this, "Failed to upload default profile image", Toast.LENGTH_SHORT).show();
+        });
     }
+
 }

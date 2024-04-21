@@ -1,6 +1,7 @@
 package com.example.agrochain;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 String userType = task.getResult().getString("userType");
 
                 if (password.equals(storedPassword)) {
+                    saveUserIDToPrefs(userID);
                     redirectToDashboard(userType,userID);
                 }else {
                     Toast.makeText(LoginActivity.this, "Incorrect password.", Toast.LENGTH_LONG).show();
@@ -99,4 +101,11 @@ public class LoginActivity extends AppCompatActivity {
         }
         startActivity(intent);
     }
+    private void saveUserIDToPrefs(String userID) {
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UserID", userID);
+        editor.apply();
+    }
+
 }
