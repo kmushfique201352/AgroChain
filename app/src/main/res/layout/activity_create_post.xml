@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Price"
+
             android:inputType="numberDecimal" />
 
         <EditText
@@ -43,7 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Release Date"
-            android:inputType="date" />
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:clickable="true"/>
 
         <EditText
             android:id="@+id/editTextNote"
@@ -53,15 +56,26 @@
             android:inputType="textMultiLine"
             android:lines="3" />
 
+<!--        <ImageView-->
+<!--            android:id="@+id/imageViewPostImage"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:padding="32dp"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:contentDescription="@string/upload_image"-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="true"/>-->
+
         <ImageView
             android:id="@+id/imageViewPostImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/img1"
-            android:scaleType="center"
-            android:contentDescription="@string/upload_image"
-            android:padding="32dp"
-            android:background="?attr/selectableItemBackground" />
+            android:scaleType="centerCrop"
+            android:padding="8dp"
+            android:contentDescription="@string/upload_image" />
+
+
 
         <Button
             android:id="@+id/buttonSubmitPost"
