@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshLayoutPostControl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/headerSectionPostControl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnCreatePost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="160px"
+                android:text="Create Post" />
+
+            <Button
+                android:id="@+id/btnDeleteAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Delete All" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/headerSectionPostControl"
+            android:layout_above="@+id/footerSection"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/layoutPostsPostControl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_below="@id/headerSectionPostControl"
+                android:layout_above="@+id/footerSection">
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/footerSection"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="#F4F4F4"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/imgHome"
+                android:layout_width="200px"
+                android:layout_height="100px"
+                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/home" />
+
+            <ImageView
+                android:id="@+id/fabCreatePost"
+                android:layout_width="200px"
+                android:layout_height="100px"
+                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/post" />
+
+            <ImageView
+                android:id="@+id/imgNotification"
+                android:layout_width="200px"
+                android:layout_height="100px"
+                android:layout_margin="10dp"
+                android:src="@drawable/notification" />
+
+            <ImageView
+                android:id="@+id/imgFarmerProfile"
+                android:layout_width="200px"
+                android:layout_height="100px"
+                android:layout_margin="10dp"
+                android:src="@drawable/profile" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
