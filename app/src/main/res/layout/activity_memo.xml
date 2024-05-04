@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MemoActivity">
+
+    <ImageView
+        android:id="@+id/productImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/productNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Product Name"
+        app:layout_constraintStart_toEndOf="@id/productImageView"
+        app:layout_constraintTop_toTopOf="@id/productImageView" />
+
+    <TextView
+        android:id="@+id/productBrandTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Brand Name"
+        app:layout_constraintStart_toStartOf="@id/productNameTextView"
+        app:layout_constraintTop_toBottomOf="@id/productNameTextView" />
+
+    <TextView
+        android:id="@+id/productPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Price $0.00"
+        app:layout_constraintStart_toStartOf="@id/productBrandTextView"
+        app:layout_constraintTop_toBottomOf="@id/productBrandTextView" />
+
+    <TextView
+        android:id="@+id/productOldPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Old Price $0.00"
+        app:layout_constraintBottom_toBottomOf="@id/productPriceTextView"
+        app:layout_constraintStart_toEndOf="@id/productPriceTextView"
+        app:layout_constraintTop_toTopOf="@id/productPriceTextView" />
+
+    <TextView
+        android:id="@+id/productSizeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Size"
+        app:layout_constraintStart_toStartOf="@id/productPriceTextView"
+        app:layout_constraintTop_toBottomOf="@id/productPriceTextView" />
+
+    <Button
+        android:id="@+id/decreaseButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintTop_toBottomOf="@id/productSizeTextView"
+        app:layout_constraintEnd_toStartOf="@id/quantityTextView"
+        app:layout_constraintBottom_toBottomOf="@id/quantityTextView" />
+
+    <TextView
+        android:id="@+id/quantityTextView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="1"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/decreaseButton"
+        app:layout_constraintBottom_toBottomOf="@id/decreaseButton"
+        app:layout_constraintEnd_toStartOf="@id/increaseButton" />
+
+    <Button
+        android:id="@+id/increaseButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="+"
+        app:layout_constraintTop_toTopOf="@id/quantityTextView"
+        app:layout_constraintBottom_toBottomOf="@id/quantityTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:hint="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productSizeTextView" />
+
+    <EditText
+        android:id="@+id/mobileEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Mobile Number"
+        app:layout_constraintStart_toStartOf="@id/nameEditText"
+        app:layout_constraintEnd_toEndOf="@id/nameEditText"
+        app:layout_constraintTop_toBottomOf="@id/nameEditText" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Address"
+        app:layout_constraintStart_toStartOf="@id/mobileEditText"
+        app:layout_constraintEnd_toEndOf="@id/mobileEditText"
+        app:layout_constraintTop_toBottomOf="@id/mobileEditText" />
+
+    <TextView
+        android:id="@+id/totalPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Total Price: TK. 0.00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addressEditText" />
+
+    <Button
+        android:id="@+id/proceedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/totalPriceTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

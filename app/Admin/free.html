@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Input Form</title>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+    <style>
+        #notificationSidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #f4f4f4;
+            overflow: auto;
+            padding: 10px;
+        }
+        #govForm {
+            margin-right: 310px; /* Added space for the sidebar */
+        }
+        img {
+            width: 100px; /* Set a fixed size for images in the notifications */
+            height: auto;
+        }
+        .notificationItem {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #eaeaea;
+            border-radius: 5px;
+        }
+        .notificationItem label {
+            font-weight: bold;
+        }
+        .notificationItem button {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="notificationSidebar">
+        <h3>Notifications</h3>
+        <ul id="notificationList"></ul>
+    </div>
+
+    <h1>Government Input Form</h1>
+    <form id="govForm">
+        <label for="imageInput">Image File:</label>
+        <input type="file" id="imageInput" required><br><br>
+
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" required><br><br>
+
+        <label for="collectionPointInput">Collection Point:</label>
+        <input type="text" id="collectionPointInput" required><br><br>
+
+        <label for="quantityInput">Quantity:</label>
+        <input type="number" id="quantityInput" required><br><br>
+
+        <label for="noteInput">Note:</label>
+        <textarea id="noteInput" required></textarea><br><br>
+
+        <button type="button" onclick="submitData()">Submit</button>
+    </form>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBWsMXm0_Z5XnGRg67iWmBmQXI9v6jsQ5Q",
+            authDomain: "agro-chain-bc156.firebaseapp.com",
+            projectId: "agro-chain-bc156",
+            storageBucket: "agro-chain-bc156.appspot.com",
+            messagingSenderId: "545018771587",
+            appId: "1:545018771587:android:a94c2e53fd1873db6383b6"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+        var storage = firebase.storage();
+
+        function submitData() {
+            var file = document.getElementById('imageInput').files[0];
+            var name = document.getElementById('nameInput').value;
+            var collectionPoint = document.getElementById('collectionPointInput').value;
+            var quantity = document.getElementById('quantityInput').value;
+            var note = document.getElementById('noteInput').value;
+            var userID = "GOVuserID";
+
+            if (file) {
+                var storageRef = storage.ref('images/' + file.name);
+                var uploadTask = storageRef.put(file);
+                uploadTask.on('state_changed', 
+                    function(snapshot) {
+                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        console.log('Upload is ' + progress + '% done');
+                    }, 
+                    function(error) {
+                        alert('Error uploading file: ' + error.message);
+                    }, 
+                    function() {
+                        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                            console.log('File available at', downloadURL);
+                            saveDocument(downloadURL, name, collectionPoint, quantity, note, userID);
+                        });
+                    }
+                );
+            }
+        }
+
+        function saveDocument(imageUrl, name, collectionPoint, quantity, note, userID) {
+            db.collection("GOV").doc("GOVA-CyUsLz").collection("FREE").add({
+                GOVuserID: userID,
+                image: imageUrl,
+                name: name,
+                collectionPoint: collectionPoint,
+                quantity: quantity,
+                note: note
+            })
+            .then(() => {
+                alert("Document successfully written!");
+                loadNotifications(); // Refresh notifications after adding
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+                alert("Error writing document: " + error.message);
+            });
+        }
+
+        function loadNotifications() {
+            db.collection("GOV")
+                .get()
+                .then((querySnapshot) => {
+                    var notifications = document.getElementById('notificationList');
+                    notifications.innerHTML = '';
+                    querySnapshot.forEach((doc) => {
+                        if (doc.id.startsWith("GOV-")) {
+                            // Assuming 'division', 'district', 'upazila' are fields in the document
+                            var collectionPoint = `${doc.data().division}, ${doc.data().district}, ${doc.data().upazila}`;
+                            doc.ref.collection("REQUEST")
+                                .get()
+                                .then((subQuerySnapshot) => {
+                                    subQuerySnapshot.forEach((subDoc) => {
+                                        var item = subDoc.data();
+                                        var listItem = document.createElement('li');
+                                        listItem.className = 'notificationItem';
+                                        listItem.innerHTML = `
+                                            <label>Name:</label> ${item.name}<br>
+                                            <label>Quantity:</label> ${item.quantity}<br>
+                                            <label>Note:</label> ${item.note}<br>
+                                            <label>Collection Point:</label> ${collectionPoint}<br>
+                                            <label>User ID:</label> ${doc.id}<br>
+                                            <img src="${item.image}" alt="Image">
+                                            <button onclick="downloadImage('${item.image}')">Download Image</button>
+                                            <button onclick="deleteNotification('${doc.id}', '${subDoc.id}')">Delete</button>
+                                        `;
+                                        notifications.appendChild(listItem);
+                                    });
+                                });
+                        }
+                    });
+                });
+        }
+
+        function downloadImage(url) {
+            window.open(url, '_blank');
+        }
+
+        function deleteNotification(docId, subDocId) {
+            db.collection("GOV").doc(docId).collection("REQUEST").doc(subDocId)
+                .delete()
+                .then(() => {
+                    alert('Notification deleted successfully');
+                    loadNotifications(); // Refresh notifications
+                })
+                .catch((error) => {
+                    console.error("Error removing document: ", error);
+                    alert('Error removing document: ' + error.message);
+                });
+        }
+
+        window.onload = loadNotifications; // Load notifications when the page loads
+    </script>
+</body>
+</html>

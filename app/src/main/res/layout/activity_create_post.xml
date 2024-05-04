@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Season"/>
+        <Spinner
+            android:id="@+id/spinnerSeason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Product"/>
+        <Spinner
+            android:id="@+id/spinnerProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price in TK per KG"/>
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantity"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextReleaseDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Release Date"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:clickable="true"/>
+
+        <EditText
+            android:id="@+id/editTextNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Note"
+            android:inputType="textMultiLine"
+            android:lines="3" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageViewPostImage"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:padding="32dp"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:contentDescription="@string/upload_image"-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="true"/>-->
+
+        <ImageView
+            android:id="@+id/imageViewPostImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:padding="8dp"
+            android:contentDescription="@string/upload_image" />
+
+
+
+        <Button
+            android:id="@+id/buttonSubmitPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Post"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

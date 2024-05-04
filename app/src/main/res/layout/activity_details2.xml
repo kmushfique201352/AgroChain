@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"/>
+
+        <ImageButton
+            android:id="@+id/play_voice_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/detail_image"
+            android:layout_marginTop="24dp"
+            android:background="?attr/selectableItemBackground"
+            android:src="@android:drawable/ic_media_play"/>
+
+        <TextView
+            android:id="@+id/detail_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/play_voice_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/label_fertilizers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fertilizers"
+            android:layout_below="@id/detail_label"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"/>
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll_fertilizers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_fertilizers"
+            android:layout_marginTop="16dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewFertilizers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/label_pesticides"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pesticides"
+            android:layout_below="@id/horizontal_scroll_fertilizers"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"/>
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll_pesticides"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_pesticides"
+            android:layout_marginTop="16dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPesticides"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+
+        </HorizontalScrollView>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
