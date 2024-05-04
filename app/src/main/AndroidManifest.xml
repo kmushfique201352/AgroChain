@@ -57,6 +57,20 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
+ 	<activity
+            android:name=".MemoActivity"
+            android:exported="false" />
+	<activity
+            android:name=".MarketplaceActivity"
+            android:exported="false" />
+
+	<activity
+            android:name=".NewsViewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".NewsPostingActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
