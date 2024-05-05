@@ -1,5 +1,7 @@
 package com.example.agrochain;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -17,10 +19,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -30,6 +37,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -39,9 +47,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
@@ -49,10 +59,12 @@ import java.util.UUID;
 public class CreatePostActivity extends AppCompatActivity {
     StorageReference storageReferance;
     LinearProgressIndicator progress;
+    private Spinner spinnerSeason, spinnerProduct;
+    private TextView textViewPrice;
 
 
 
-    private EditText editTextName, editTextProduct, editTextPrice, editTextQuantity, editTextReleaseDate, editTextNote;
+    private EditText editTextQuantity, editTextReleaseDate, editTextNote;
     private ImageView imageViewPostImage;
     private Button buttonSubmitPost;
     private Uri image;
@@ -79,14 +91,17 @@ public class CreatePostActivity extends AppCompatActivity {
 
         storageReferance=FirebaseStorage.getInstance().getReference();
 
-        editTextName = findViewById(R.id.editTextName);
-        editTextProduct = findViewById(R.id.editTextProduct);
-        editTextPrice = findViewById(R.id.editTextPrice);
+        spinnerSeason = findViewById(R.id.spinnerSeason);
+        spinnerProduct = findViewById(R.id.spinnerProduct);
+        textViewPrice = findViewById(R.id.textViewPrice);
+
         editTextQuantity = findViewById(R.id.editTextQuantity);
         editTextReleaseDate = findViewById(R.id.editTextReleaseDate);
         editTextNote = findViewById(R.id.editTextNote);
         imageViewPostImage = findViewById(R.id.imageViewPostImage);
         buttonSubmitPost = findViewById(R.id.buttonSubmitPost);
+
+        loadSeasons();
 
         editTextReleaseDate.setOnClickListener(v -> showDatePickerDialog());
         imageViewPostImage.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +131,92 @@ public class CreatePostActivity extends AppCompatActivity {
             Toast.makeText(this, "User ID is missing", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    private void loadSeasons() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("GOV").document("GOVA-CyUsLz").collection("PRODUCT")
+                .get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        List<String> seasons = new ArrayList<>();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            String category = document.getString("category");
+                            if (!seasons.contains(category)) {
+                                seasons.add(category);
+                            }
+                        }
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, seasons);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerSeason.setAdapter(adapter);
+
+                        spinnerSeason.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                String selectedSeason = adapter.getItem(position);
+                                if (selectedSeason != null) {
+                                    loadProducts(selectedSeason);
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+                            }
+                        });
+                    } else {
+                        Log.w(TAG, "Error getting documents.", task.getException());
+                    }
+                });
+    }
+
+
+    private void loadProducts(String season) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("GOV").document("GOVA-CyUsLz").collection("PRODUCT")
+                .whereEqualTo("category", season)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        List<String> products = new ArrayList<>();
+                        Map<String, String> productPriceMap = new HashMap<>();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            String productName = document.getString("name");
+                            String price = document.getString("price");
+                            products.add(productName);
+                            productPriceMap.put(productName, price);
+                        }
+
+                        if (!products.isEmpty()) {
+                            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, products);
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            spinnerProduct.setAdapter(adapter);
+
+                            spinnerProduct.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                    String selectedProduct = adapter.getItem(position);
+                                    if (selectedProduct != null && productPriceMap.containsKey(selectedProduct)) {
+                                        textViewPrice.setText(productPriceMap.get(selectedProduct));
+                                    }
+                                }
+
+                                @Override
+                                public void onNothingSelected(AdapterView<?> parent) {
+                                    textViewPrice.setText("");
+                                }
+                            });
+                        } else {
+                            Toast.makeText(CreatePostActivity.this, "No products found for the selected season.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Log.w(TAG, "Error getting documents: ", task.getException());
+                    }
+                });
+    }
+
+
+
+
+
     public String getUserID() {
         SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return sharedPreferences.getString("UserID", null);
@@ -169,6 +270,14 @@ public class CreatePostActivity extends AppCompatActivity {
             Toast.makeText(this, "User ID is missing", Toast.LENGTH_SHORT).show();
             return;
         }
+        String selectedCategory = (String) spinnerSeason.getSelectedItem();
+        String selectedProduct = (String) spinnerProduct.getSelectedItem();
+        String priceText = textViewPrice.getText().toString();
+
+        if (selectedCategory == null || selectedProduct == null || priceText.isEmpty()) {
+            Toast.makeText(this, "Please make sure all fields are filled out correctly.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         String collectionName = determineCollectionName(userID);
         if(collectionName.isEmpty()){
@@ -177,9 +286,9 @@ public class CreatePostActivity extends AppCompatActivity {
         }
 
         Map<String, Object> post = new HashMap<>();
-        post.put("name", editTextName.getText().toString());
-        post.put("product", editTextProduct.getText().toString());
-        post.put("price", editTextPrice.getText().toString());
+        post.put("category", selectedCategory);
+        post.put("name", selectedProduct);
+        post.put("price", priceText);
         post.put("quantity", editTextQuantity.getText().toString());
         post.put("releaseDate", editTextReleaseDate.getText().toString());
         post.put("note", editTextNote.getText().toString());
