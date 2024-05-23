@@ -80,7 +80,7 @@ public class PostControlActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     LinearLayout postsLayout =   findViewById(R.id.layoutPostsPostControl);
-                    postsLayout.removeAllViews(); // Clear previous posts
+                    postsLayout.removeAllViews();
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         View postView = LayoutInflater.from(PostControlActivity.this).inflate(R.layout.self_item_post, postsLayout, false);
 

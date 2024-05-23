@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBWsMXm0_Z5XnGRg67iWmBmQXI9v6jsQ5Q",
+            authDomain: "agro-chain-bc156.firebaseapp.com",
+            projectId: "agro-chain-bc156",
+            storageBucket: "agro-chain-bc156.appspot.com",
+            messagingSenderId: "545018771587",
+            appId: "1:545018771587:android:a94c2e53fd1873db6383b6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        function addProduct() {
+            const category = document.getElementById('category').value;
+            const name = document.getElementById('name').value;
+            const price = document.getElementById('price').value;
+
+            // Reference to the PRODUCT collection
+            const productRef = db.collection("GOV").doc("GOVA-CyUsLz").collection("PRODUCT");
+
+            // Add a new document with a generated ID
+            productRef.add({
+                category: category,
+                name: name,
+                price: price
+            })
+            .then(() => {
+                console.log("Document successfully written!");
+                alert("Product added successfully!");
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+                alert("Error adding product!");
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Add New Product</h1>
+    <form onSubmit="event.preventDefault(); addProduct();">
+        <label for="category">Category of Product:</label><br>
+        <input type="text" id="category" name="category" required><br><br>
+        <label for="name">Name of Product:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="price">Price of Product:</label><br>
+        <input type="text" id="price" name="price" required><br><br>
+        <button type="submit">Add Product</button>
+    </form>
+</body>
+</html>

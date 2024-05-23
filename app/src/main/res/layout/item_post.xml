@@ -69,8 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="34px"
-            android:textAppearance="?attr/textAppearanceListItem"/>
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="34px" />
 
         <ImageView
             android:id="@+id/postImage"

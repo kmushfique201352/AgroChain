@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <style>
+        .news-box {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .news-content {
+            margin-top: 10px;
+        }
+        .news-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button onclick="filterUsers('FAR')">Farmers</button>
+        <button onclick="filterUsers('GOV')">Government</button>
+        <button onclick="filterUsers('CUS')">Customers</button>
+        <button onclick="filterUsers('WHO')">Wholesalers</button>
+        <br>
+        <button onclick="window.location.href='add_product.html'">Add New Product</button>
+        <br>
+        <button onclick="window.location.href='ordered_list.html'">Order List</button>
+        <br>
+        <button onclick="window.location.href='news.html'">Show News</button>
+        <br>
+        <button onclick="window.location.href='product.html'">Fix Product price</button>
+        <br>
+        <button onclick="window.location.href='free.html'">Donate</button>
+        <br>
+        <button onclick="window.location.href='delivery.html'">Delivery</button>
+        <br>
+        <button onclick="window.location.href='help.html'">Help</button>
+    </div>
+    <div class="content">
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Division</th>
+                    <th>District</th>
+                    <th>Phone</th>
+                    <th>User Type</th>
+                </tr>
+            </thead>            
+            <tbody>
+                <!-- User data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyBWsMXm0_Z5XnGRg67iWmBmQXI9v6jsQ5Q",
+            authDomain: "agro-chain-bc156.firebaseapp.com",
+            projectId: "agro-chain-bc156",
+            storageBucket: "agro-chain-bc156.appspot.com",
+            messagingSenderId: "545018771587",
+            appId: "1:545018771587:android:a94c2e53fd1873db6383b6"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Function to filter users from Firestore
+        function filterUsers(collectionName) {
+            console.log("Filtering users from collection:", collectionName);
+            var db = firebase.firestore();
+            db.collection(collectionName).get()
+            .then((querySnapshot) => {
+                const tableBody = document.getElementById('usersTable').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = ''; // Clear previous entries
+                querySnapshot.forEach((doc) => {
+                    const row = tableBody.insertRow();
+                    const data = doc.data();
+                    ['name', 'age', 'gender', 'division', 'district', 'phone', 'userType'].forEach(field => {
+                        const cell = row.insertCell();
+                        cell.textContent = data[field] || 'N/A';
+                    });
+                });
+            })
+            .catch((error) => {
+                console.error("Error fetching users: ", error);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Page loaded. Initializing default user filter.");
+            
+            filterUsers('FAR'); // Default view
+        });
+        
+    </script>
+</body>
+</html>

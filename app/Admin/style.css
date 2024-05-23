@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#login-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#dashboard {
+    display: none;
+}
+body {
+    display: flex;
+    font-family: 'Arial', sans-serif;
+}
+
+.sidebar {
+    min-width: 200px;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #eee;
+}

@@ -7,9 +7,17 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +29,56 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgroChain"
         tools:targetApi="31">
+        <activity
+            android:name=".PurchaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Request_Donate"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".ProtectionSchool"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeatherDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CropSchool"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MarketplaceActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".OrderActivity" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewsViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewsPostingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostActionActivity"
+            android:exported="false" />
         <activity
             android:name=".EditPostActivity"
             android:exported="false" />
@@ -57,20 +115,6 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
- 	<activity
-            android:name=".MemoActivity"
-            android:exported="false" />
-	<activity
-            android:name=".MarketplaceActivity"
-            android:exported="false" />
-
-	<activity
-            android:name=".NewsViewActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".NewsPostingActivity"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"

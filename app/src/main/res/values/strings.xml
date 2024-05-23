@@ -22,21 +22,154 @@
         <item>Customer</item>
     </string-array>
 
-    <string-array name="divisions_array">
-        <item>Dhaka</item>
-        <item>Chittagong</item>
-    </string-array>
     <string-array name="gender_array">
         <item>Male</item>
         <item>Female</item>
     </string-array>
+
+    <string-array name="divisions_array">
+        <item>Barishal</item>
+        <item>Chattogram</item>
+        <item>Dhaka</item>
+        <item>Khulna</item>
+        <item>Mymensingh</item>
+        <item>Rajshahi</item>
+        <item>Rangpur</item>
+        <item>Sylhet</item>
+    </string-array>
+
     <string-array name="districts_array">
-        <item>DHK</item>
-        <item>CHTGN</item>
+        <item>Barguna</item>
+        <item>Barishal</item>
+        <item>Bhola</item>
+        <item>Jhalokati</item>
+        <item>Patuakhali</item>
+        <item>Pirojpur</item>
+
+        <item>Brahmanbaria</item>
+        <item>Chandpur</item>
+        <item>Chattogram</item>
+        <item>Cumilla</item>
+        <item>"Cox's Bazar"</item>
+        <item>Feni</item>
+        <item>Khagrachhari</item>
+        <item>Lakshmipur</item>
+        <item>Noakhali</item>
+        <item>Rangamati</item>
+
+        <item>Dhaka</item>
+        <item>Faridpur</item>
+        <item>Gazipur</item>
+        <item>Gopalganj</item>
+        <item>Kishoreganj</item>
+        <item>Madaripur</item>
+        <item>Manikganj</item>
+        <item>Munshiganj</item>
+        <item>Narayanganj</item>
+        <item>Narsingdi</item>
+        <item>Rajbari</item>
+        <item>Shariatpur</item>
+        <item>Tangail</item>
+
+        <item>Bagerhat</item>
+        <item>Chuadanga</item>
+        <item>Jessore</item>
+        <item>Jhenaidah</item>
+        <item>Khulna</item>
+        <item>Kushtia</item>
+        <item>Magura</item>
+        <item>Meherpur</item>
+        <item>Narail</item>
+        <item>Satkhira</item>
+
+        <item>Jamalpur</item>
+        <item>Mymensingh</item>
+        <item>Netrokona</item>
+        <item>Sherpur</item>
+        <item>Rajshahi</item>
+        <item>Bogra</item>
+        <item>Chapainawabganj</item>
+        <item>Joypurhat</item>
+        <item>Naogaon</item>
+        <item>Natore</item>
+        <item>Pabna</item>
+        <item>Rajshahi</item>
+        <item>Sirajganj</item>
+        <item>Rangpur</item>
+        <item>Dinajpur</item>
+        <item>Gaibandha</item>
+        <item>Kurigram</item>
+        <item>Lalmonirhat</item>
+        <item>Nilphamari</item>
+        <item>Panchagarh</item>
+        <item>Rangpur</item>
+        <item>Thakurgaon</item>
+        <item>Sylhet</item>
+        <item>Habiganj</item>
+        <item>Moulvibazar</item>
+        <item>Sunamganj</item>
+        <item>Sylhet</item>
     </string-array>
     <string-array name="upazilas_array">
-        <item>Uttara</item>
+        <item>Barishal</item>
+        <item>Barguna</item>
+        <item>Amtali</item>
+        <item>Bamna</item>
+        <item>Barguna Sadar</item>
+        <item>Barishal</item>
+        <item>Agailjhara</item>
+        <item>Babuganj</item>
+        <item>Bakerganj</item>
+        <item>Bhola</item>
+        <item>Bhola Sadar</item>
+        <item>Borhanuddin</item>
+        <item>Char Fasson</item>
+        <item>Chattogram</item>
+        <item>Brahmanbaria</item>
+        <item>Akhaura</item>
+        <item>Bancharampur</item>
+        <item>Brahmanbaria Sadar</item>
+        <item>Chattogram</item>
+        <item>Anwara</item>
+        <item>Banshkhali</item>
+        <item>Boalkhali</item>
+        <item>Dhaka</item>
+        <item>Dhaka</item>
         <item>Dhanmondi</item>
+        <item>Gulshan</item>
+        <item>Tejgaon</item>
+        <item>Gazipur</item>
+        <item>Gazipur Sadar</item>
+        <item>Kaliganj</item>
+        <item>Kapasia</item>
+        <item>Khulna</item>
+        <item>Khulna</item>
+        <item>Dacope</item>
+        <item>Dumuria</item>
+        <item>Khalishpur</item>
+        <item>Meherpur</item>
+        <item>Gangni</item>
+        <item>Meherpur Sadar</item>
+        <item>Mymensingh</item>
+        <item>Mymensingh</item>
+        <item>Fulbaria</item>
+        <item>Gafargaon</item>
+        <item>Mymensingh Sadar</item>
+        <item>Rajshahi</item>
+        <item>Rajshahi</item>
+        <item>Bagmara</item>
+        <item>Boalia</item>
+        <item>Charghat</item>
+        <item>Rangpur</item>
+        <item>Rangpur</item>
+        <item>Badarganj</item>
+        <item>Haragach</item>
+        <item>Rangpur Sadar</item>
+        <item>Sylhet</item>
+        <item>Sylhet</item>
+        <item>Beanibazar</item>
+        <item>Bishwanath</item>
+        <item>Golapganj</item>
     </string-array>
     <string name="edit_profile_picture">Edit Profile Picture</string>
     <string name="name">Name</string>
@@ -51,4 +184,12 @@
     <string name="update_profile">Update Profile</string>
     <string name="delete_profile">Delete Profile</string>
     <string name="upload_image">Upload img</string>
+
+    <string-array name="weight_options">
+        <item>5 kg</item>
+        <item>10 kg</item>
+        <item>20 kg</item>
+    </string-array>
+
+
 </resources>

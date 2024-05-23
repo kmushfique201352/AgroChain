@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/selectImagesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Images" />
+
+    <HorizontalScrollView
+        android:id="@+id/scrollViewImages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectImagesButton"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:id="@+id/imagesContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <ImageButton
+        android:id="@+id/recordVoiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scrollViewImages"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@android:drawable/ic_btn_speak_now"
+        android:background="?android:selectableItemBackground"
+        android:padding="20dp" />
+    <RelativeLayout
+        android:id="@+id/audioPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recordVoiceButton"
+        android:layout_marginTop="10dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btnPlayAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_media_play" />
+
+        <SeekBar
+            android:id="@+id/seekBarAudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btnPlayAudio"
+            android:layout_toEndOf="@id/btnPlayAudio" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnCancelAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/audioPlayer"
+        android:text="Cancel Audio"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/postToFirestoreButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/audioPlayer"
+        android:layout_marginTop="20dp"
+        android:text="Post" />
+
+</RelativeLayout>

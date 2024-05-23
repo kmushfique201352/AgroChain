@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <style>
+        #newsContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Aligns the items on the start of the flex line */
+            align-items: stretch; /* Ensures the items stretch to fill the container */
+        }
+        .news-box {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 0 10px #ccc;
+            overflow: hidden; /* Ensures the box does not get distorted due to content */
+            width: calc(33.333% - 20px); /* Calculates width for 3 items per row accounting for margin */
+        }
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .news-content {
+            margin-top: 10px;
+        }
+        .news-date {
+            font-style: italic;
+            color: #555;
+        }
+        .news-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latest News</h1>
+    <div id="newsContainer"></div>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBWsMXm0_Z5XnGRg67iWmBmQXI9v6jsQ5Q",
+            authDomain: "agro-chain-bc156.firebaseapp.com",
+            projectId: "agro-chain-bc156",
+            storageBucket: "agro-chain-bc156.appspot.com",
+            messagingSenderId: "545018771587",
+            appId: "1:545018771587:android:a94c2e53fd1873db6383b6"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        async function fetchNews() {
+            const db = firebase.firestore();
+            const govRef = db.collection("GOV");
+            const govSnapshot = await govRef.get();
+            govSnapshot.forEach(async doc => {
+                if (doc.id.startsWith("GOV-")) {
+                    const newsRef = db.collection("GOV").doc(doc.id).collection("NEWS");
+                    const querySnapshot = await newsRef.get();
+                    const newsContainer = document.getElementById('newsContainer');
+                    querySnapshot.forEach(doc => {
+                        const news = doc.data();
+                        const newsBox = document.createElement('div');
+                        newsBox.className = 'news-box';
+                        newsBox.innerHTML = `
+                            <div class="news-title">${news.title}</div>
+                            <div class="news-date">${formatDate(news.date.seconds)}</div>
+                            <img class="news-image" src="${news.imageUrl}" alt="News Image">
+                            <div class="news-content">${news.content}</div>
+                            <a href="${news.link}" target="_blank">Read more</a>
+                        `;
+                        newsContainer.appendChild(newsBox);
+                    });
+                }
+            });
+        }
+
+        function formatDate(timestamp) {
+            const date = new Date(timestamp * 1000); // Convert UNIX timestamp to JavaScript Date
+            return date.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }) + 
+                ' at ' + date.toLocaleTimeString("en-US"); // Format date as 'Month Day, Year at Time'
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchNews);
+    </script>
+</body>
+</html>

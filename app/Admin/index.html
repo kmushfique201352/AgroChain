@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+</head>
+<body>
+    <div id="login-section">
+        <input type="text" id="userID" placeholder="Enter your Admin ID">
+        <input type="password" id="password" placeholder="Enter your password">
+        <button id="loginButton">Login</button>
+    </div>
+    <div id="dashboard">
+        <!-- Content that requires user to be logged in -->
+    </div>
+
+    <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyBWsMXm0_Z5XnGRg67iWmBmQXI9v6jsQ5Q",
+            authDomain: "agro-chain-bc156.firebaseapp.com",
+            projectId: "agro-chain-bc156",
+            storageBucket: "agro-chain-bc156.appspot.com",
+            messagingSenderId: "545018771587",
+            appId: "1:545018771587:android:a94c2e53fd1873db6383b6"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Function to handle admin login
+        document.getElementById('loginButton').addEventListener('click', function() {
+            var userID = document.getElementById('userID').value;
+            var password = document.getElementById('password').value;
+            var db = firebase.firestore();
+
+            db.collection("GOV").doc(userID).get()
+            .then(function(doc) {
+                if (doc.exists && doc.data().password === password) {
+                    console.log("Login successful for:", userID);
+                    // Redirect to the admin dashboard page
+                    window.location.href = 'admin_dashboard.html'; // Ensure you have this file
+                } else {
+                    console.error("Invalid login credentials");
+                    alert("Invalid login credentials");
+                }
+            })
+            .catch(function(error) {
+                console.error("Error during login: ", error);
+                alert("Login error: " + error.message);
+            });
+        });
+    </script>
+</body>
+</html>

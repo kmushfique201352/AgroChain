@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/crop_image_view"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_margin="20px"
+            android:src="@drawable/tomato" />
+
+        <TextView
+            android:id="@+id/crop_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Tomato" />
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewCrop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Crop"
+                android:textSize="18sp"
+                android:padding="16dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/textViewProtection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Protection"
+                android:textSize="18sp"
+                android:padding="16dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCropDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:background="#EBF4E984"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:padding="10px"
+                android:text="নার্সারি আগে"/>
+            <TextView
+                android:id="@+id/headLabel1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Heading Label"/>
+            <TextView
+                android:id="@+id/baseLabel1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Base Label"/>
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:id="@+id/btn1"
+                        android:layout_width="400px"
+                        android:layout_height="400px"
+                        android:orientation="vertical"
+                        android:layout_margin="4dp">
+                        <ImageView
+                            android:id="@+id/imgbtn1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="300px"
+                            android:src="@drawable/watermelon"/>
+                        <TextView
+                            android:id="@+id/lblbtn1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Button Label"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/btn2"
+                        android:layout_width="400px"
+                        android:layout_height="400px"
+                        android:orientation="vertical"
+                        android:layout_margin="4dp">
+                        <ImageView
+                            android:id="@+id/imgbtn2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="300px"
+                            android:src="@drawable/watermelon"/>
+                        <TextView
+                            android:id="@+id/lblbtn2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Button Label"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/btn3"
+                        android:layout_width="400px"
+                        android:layout_height="400px"
+                        android:orientation="vertical"
+                        android:layout_margin="4dp">
+                        <ImageView
+                            android:id="@+id/imgbtn3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="300px"
+                            android:src="@drawable/watermelon"/>
+                        <TextView
+                            android:id="@+id/lblbtn3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Button Label"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/btn4"
+                        android:layout_width="400px"
+                        android:layout_height="400px"
+                        android:orientation="vertical"
+                        android:layout_margin="4dp">
+                        <ImageView
+                            android:id="@+id/imgbtn4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="300px"
+                            android:src="@drawable/watermelon"/>
+                        <TextView
+                            android:id="@+id/lblbtn4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Button Label"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+

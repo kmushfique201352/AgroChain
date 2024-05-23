@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,21 +40,24 @@ public class LoginActivity extends AppCompatActivity {
         String collectionPath = mapPrefixToCollection(prefix);
 
         db.collection(collectionPath).document(userID).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful() && task.getResult() != null) {
-                String storedPassword = task.getResult().getString("password");
-                String userType = task.getResult().getString("userType");
-
-                if (password.equals(storedPassword)) {
-                    saveUserIDToPrefs(userID);
-                    redirectToDashboard(userType,userID);
-                }else {
-                    Toast.makeText(LoginActivity.this, "Incorrect password.", Toast.LENGTH_LONG).show();
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document != null && document.exists()) {
+                    String storedPassword = document.getString("password");
+                    if (storedPassword != null && storedPassword.equals(password)) {
+                        String userType = document.getString("userType");
+                        saveUserIDToPrefs(userID);
+                        redirectToDashboard(userType, userID);
+                    } else {
+                        Log.d("Login", "Failed login attempt for userID: " + userID + " with password: " + password);
+                        Toast.makeText(LoginActivity.this, "Incorrect password.", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(LoginActivity.this, "User not found.", Toast.LENGTH_LONG).show();
                 }
-//                else {
-//                    Toast.makeText(LoginActivity.this, "Error: Incorrect password. Expected userID: " + userID + ", password: " + storedPassword, Toast.LENGTH_LONG).show();
-//                }
             } else {
-                Toast.makeText(LoginActivity.this, "Error: User not found", Toast.LENGTH_LONG).show();
+                Log.e("Firestore Error", "Error fetching user details", task.getException());
+                Toast.makeText(LoginActivity.this, "Login failed. Please try again later.", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -67,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
                 return "GOV";
             case "WHO":
                 return "WHO";
+            case "CUS":
+                return "CUS";
             default:
                 return "users";
         }
@@ -82,13 +88,13 @@ public class LoginActivity extends AppCompatActivity {
                 intent = new Intent(LoginActivity.this, WholesalerDashboardActivity.class);
                 break;
             case "Government Authority":
-                intent = new Intent(LoginActivity.this, WholesalerDashboardActivity.class);
+                intent = new Intent(LoginActivity.this, GovernmentDashboardActivity.class);
                 break;
             case "Retailer":
-                intent = new Intent(LoginActivity.this, WholesalerDashboardActivity.class);
+                intent = new Intent(LoginActivity.this, RetailerDashboardActivity.class);
                 break;
             case "Customer":
-                intent = new Intent(LoginActivity.this, WholesalerDashboardActivity.class);
+                intent = new Intent(LoginActivity.this, CustomerDashboardActivity.class);
                 break;
             default:
                 return;

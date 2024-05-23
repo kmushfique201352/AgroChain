@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script type="module">
+        
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+        import { getFirestore, collection, getDocs, onSnapshot, doc, addDoc, updateDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBWsMXm0_Z5XnGRg67iWmBmQXI9v6jsQ5Q",
+            authDomain: "agro-chain-bc156.firebaseapp.com",
+            projectId: "agro-chain-bc156",
+            storageBucket: "agro-chain-bc156.appspot.com",
+            messagingSenderId: "545018771587",
+            appId: "1:545018771587:android:a94c2e53fd1873db6383b6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function fetchOrders() {
+            const ordersRef = collection(db, "GOV", "GOVA-CyUsLz", "DELIVERY");
+            const querySnapshot = await getDocs(ordersRef);
+            const tableBody = document.getElementById('ordersTableBody');
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const row = tableBody.insertRow();
+
+                row.innerHTML = `<td>${data.userID}</td>
+                    <td id="address${doc.id}">${data.address}</td>
+                    <td id="deliveryLocation${doc.id}">${data.deliveryLocation}</td>
+                    <td>${data.contact}</td>
+                    <td><img id="image${doc.id}" src="${data.image}" alt="Customer Image" style="width: 150px; height: 150px;"></td>
+                    <td>${data.userIDFar}</td>
+                    <td>${data.phoneNumber}</td>
+                    <td id="price${doc.id}">${data.price}</td>
+                    <td id="quantity${doc.id}">${data.quantity}</td>
+                    <td >${data.userName}</td>
+                    <td>${data.userAddress}</td>
+                    <td>
+                        <button id="totalCostBtn${doc.id}" data-original="${data.Total}" class="total-cost-btn">${data.Total}</button>
+                        <div id="additionalCharge${doc.id}" class="additional-charge">+0.00</div>
+                    </td>
+                    <td>
+                        <select id="deliveryChargeSelect${doc.id}">
+                            <option value="0" selected>ADD</option>
+                            <option value="60">Tk 60</option>
+                            <option value="100">Tk 100</option>
+                            <option value="250">Tk 250</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="saveDetailsBtn${doc.id}" data-action="saveDetails" data-doc-id="${doc.id}" data-user-id="${data.userID}">Save Details</button>
+                    </td>
+                    <td>
+                        <button id="farStatusBtn${doc.id}" data-action="farStatus" data-doc-id="${doc.id}" data-user-id="${data.userIDFar}">Save Details</button>
+                    </td>`;
+
+                    
+                    // Get the existing "Save Details" button
+                    const saveButton = document.getElementById(`saveDetailsBtn${doc.id}`);
+                    const farStatusButton = document.getElementById(`farStatusBtn${doc.id}`);
+
+                    const cusStatus = data.CUS_status;
+                    const farStatus = data.FAR_status;
+                    
+                    if (cusStatus !== "pending") {
+                        // If CUS_status is not equal to "pending", change button color to green
+                        saveButton.style.backgroundColor = "green";
+                    }
+                    if (farStatus !== "pending") {
+                        // If CUS_status is not equal to "pending", change button color to green
+                        farStatusButton.style.backgroundColor = "green";
+                    }
+
+                    // Attach event listener to the "Save Details" button
+                    saveButton.addEventListener('click', () => {
+                        handleStatusChange(doc.id, data.userID);
+                    });
+                    farStatusButton.addEventListener('click', () => {
+                        handleStatusChange(doc.id, data.userIDFar);
+                    });
+
+
+                    
+                    // Attach delivery charge change listener
+                    document.getElementById(`deliveryChargeSelect${doc.id}`).addEventListener('change', (event) => {
+                        handleDeliveryChargeChange(event.target.value, doc.id);
+                });
+            });
+        }
+        
+        
+        function handleDeliveryChargeChange(deliveryCharge, docId) {
+            const totalCostBtn = document.getElementById(`totalCostBtn${docId}`);
+            const originalTotal = parseFloat(totalCostBtn.getAttribute('data-original')); // Retrieve the original total cost
+            const additionalCharge = parseFloat(deliveryCharge); // Parse the selected delivery charge
+            const combinedTotal = originalTotal + additionalCharge; // Calculate the new combined total
+        
+            // Update the additional charge display to show the combined total
+            const additionalChargeDisplay = document.getElementById(`additionalCharge${docId}`);
+            additionalChargeDisplay.textContent = `${combinedTotal.toFixed(2)}`;
+        }
+        
+
+
+        function attachEventListeners() {
+            const orderButtons = document.querySelectorAll('button[data-action="saveDetails"]');
+            const orderButtons2 = document.querySelectorAll('button[data-action="farStatus"]');
+            orderButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const docId = this.getAttribute('data-doc-id');
+                    const userId = this.getAttribute('data-user-id');
+                    handleStatusChange(docId, userId);
+                });
+            });
+        }
+
+        async function handleStatusChange(docId, userId) {
+            console.log("Handling status change for:", userId);
+            const address = document.getElementById(`address${docId}`).textContent;
+            const locations = document.getElementById(`deliveryLocation${docId}`).textContent;
+            const image = document.getElementById(`image${docId}`).src;
+            const price = parseFloat(document.getElementById(`price${docId}`).textContent);
+            const quantity = parseInt(document.getElementById(`quantity${docId}`).textContent);
+            const totalCost = document.getElementById(`additionalCharge${docId}`).textContent.replace('+', '');
+    
+            const data = { address, locations, image, price, quantity, totalCost , status: "pending", timestamp: serverTimestamp()};
+    
+            const userNotificationsRef = collection(doc(db, userId.substring(0, 3), userId), "NOTIFICATION");
+            const notificationDoc = await addDoc(userNotificationsRef, data);
+    
+            console.log("Notification added successfully. Document ID:", notificationDoc.id);
+            console.log("Document ID:", docId);
+
+            const deliveryDocRef = doc(db, "GOV", "GOVA-CyUsLz", "DELIVERY", docId);
+            if(userId.substring(0, 3)=="FAR"){
+                await updateDoc(deliveryDocRef, { FAR_status: notificationDoc.id });
+                console.log("FAR_status updated successfully");
+                location.reload();
+            }else{
+                await updateDoc(deliveryDocRef, { CUS_status: notificationDoc.id });
+                console.log("CUS_status updated successfully");
+                location.reload();
+            }
+            alert("Data saved and status updated successfully!");
+        }
+
+        async function generatePDF() {
+            try {
+                const { jsPDF } = window.jspdf;
+                const element = document.body;
+                const canvas = await html2canvas(element);
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF({
+                    orientation: "portrait",
+                    unit: "px",
+                    format: [canvas.width, canvas.height]
+                });
+                pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.save('order-list.pdf');
+            } catch (error) {
+                console.error("Error generating PDF", error);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            fetchOrders();
+            document.getElementById('pdfButton').addEventListener('click', generatePDF);
+            attachEventListeners();
+        });
+    </script>
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+        .additional-charge { color: red; font-weight: bold; margin-top: 5px; display: block; }
+    </style>
+</head>
+<body>
+    <h1>Delivery Information</h1>
+    <button id="pdfButton">Download PDF</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer User ID</th>
+                <th>Address</th>
+                <th>Location</th>
+                <th>Contact</th>
+                <th>Image</th>
+                <th>Farmer User ID</th>
+                <th>Farmer Contact</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Farmer Name</th>
+                <th>Farmer Address</th>
+                <th>Total Cost</th>
+                <th>Delivery Charge</th>
+                <th>Status Customer</th>
+                <th>Status Farmer</th>
+            </tr>
+        </thead>
+        <tbody id="ordersTableBody">
+            <!-- Orders will be displayed here -->
+        </tbody>
+    </table>
+</body>
+</html>
