@@ -14,14 +14,17 @@ app:cardCornerRadius="8dp">
     android:padding="16dp">
 
     <TextView
+        android:layout_marginTop="50px"
         android:id="@+id/notificationTitleCustomer"
         android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
         android:text="Customer Notification" />
 
     <LinearLayout
+        android:layout_marginTop="30px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -30,6 +33,8 @@ app:cardCornerRadius="8dp">
             android:id="@+id/notificationImageCustomer"
             android:layout_width="330px"
             android:layout_height="330px"
+            android:textColor="@android:color/black"
+            android:background="@drawable/rounded_edittext"
             android:layout_marginTop="4dp"
             android:layout_marginRight="16dp"/>
     <LinearLayout
@@ -77,10 +82,14 @@ app:cardCornerRadius="8dp">
         android:layout_marginTop="4dp" />
     </LinearLayout>
     </LinearLayout>
+
     <Button
         android:id="@+id/buttonCallCustomer"
         android:layout_width="match_parent"
+        android:layout_marginTop="20px"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
         android:text="Call for help" />
 
 

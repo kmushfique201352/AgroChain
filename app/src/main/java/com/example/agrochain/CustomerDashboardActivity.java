@@ -196,7 +196,7 @@ public class CustomerDashboardActivity extends AppCompatActivity {
         ImageView imageView = postView.findViewById(R.id.postImage);
         Button buyButton = postView.findViewById(R.id.buyButton);
 
-        String postDetails = "com.example.agrochain.Product: " + postSnapshot.getString("product") + "\n" +
+        String postDetails = "Product: " + postSnapshot.getString("category") + "\n" +
                 "Price: " + postSnapshot.getString("price");
         detailsView.setText(postDetails);
 

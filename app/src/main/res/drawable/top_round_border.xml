@@ -1,0 +1,11 @@
+<!-- bottom_round_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#E4E4E4" />
+    <stroke
+        android:width="2dp"
+        android:color="#BCBCBC" />
+    <corners android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp" /> <!-- Adjust the radius as needed -->
+</shape>

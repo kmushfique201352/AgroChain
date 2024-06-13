@@ -90,6 +90,7 @@ dependencies {
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation ("com.google.firebase:firebase-messaging:20.2.0")
     implementation ("com.android.volley:volley:1.2.1")
-
+    implementation ("com.airbnb.android:lottie:3.4.0")
+    implementation ("com.google.android.material:material:1.3.0")
 
 }

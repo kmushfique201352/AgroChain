@@ -9,37 +9,80 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
     <style>
-        #newsContainer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start; /* Aligns the items on the start of the flex line */
-            align-items: stretch; /* Ensures the items stretch to fill the container */
-        }
-        .news-box {
-            border: 1px solid #ccc;
-            margin: 10px;
-            padding: 10px;
-            box-shadow: 0 0 10px #ccc;
-            overflow: hidden; /* Ensures the box does not get distorted due to content */
-            width: calc(33.333% - 20px); /* Calculates width for 3 items per row accounting for margin */
-        }
-        .news-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .news-content {
-            margin-top: 10px;
-        }
-        .news-date {
-            font-style: italic;
-            color: #555;
-        }
-        .news-image {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            margin-top: 10px;
-        }
+        /* style.css */
+
+/* Reset default margins and paddings */
+body, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+/* Page title styling */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* News container styling */
+#newsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Center items */
+    padding: 20px;
+}
+
+/* Individual news box styling */
+.news-box {
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    width: 300px; /* Set fixed width for each news box */
+}
+
+/* News title styling */
+.news-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* News date styling */
+.news-date {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* News image styling */
+.news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensure the image covers the entire container */
+    margin-bottom: 10px;
+}
+
+/* News content styling */
+.news-content {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Read more link styling */
+.news-link {
+    display: block;
+    text-align: right;
+    color: #007bff; /* Blue color */
+}
+
     </style>
 </head>
 <body>

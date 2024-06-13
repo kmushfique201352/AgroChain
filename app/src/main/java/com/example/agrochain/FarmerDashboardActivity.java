@@ -368,7 +368,7 @@ public class FarmerDashboardActivity extends AppCompatActivity {
 
 
     private String formatPostDetails(QueryDocumentSnapshot postSnapshot, String userAddress) {
-        return "com.example.agrochain.Product: " + postSnapshot.getString("product") + "\n" +
+        return "Product: " + postSnapshot.getString("category") + "\n" +
                 "Price: " + postSnapshot.getString("price") + "\n" +
                 "Quantity: " + postSnapshot.getString("quantity") + "\n" +
                 "Release Date: " + postSnapshot.getString("releaseDate") + "\n" +

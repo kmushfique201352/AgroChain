@@ -13,45 +13,69 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Season"/>
+            android:text="Select Season"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
         <Spinner
             android:id="@+id/spinnerSeason"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_spinner"
+            android:layout_marginTop="8dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Product"/>
+            android:text="Select Product"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp" />
         <Spinner
             android:id="@+id/spinnerProduct"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_spinner"
+            android:layout_marginTop="8dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price in TK per KG"/>
+            android:text="Price in TK per KG"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp" />
         <TextView
             android:id="@+id/textViewPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="8dp" />
 
         <EditText
             android:id="@+id/editTextQuantity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100px"
             android:hint="Quantity"
-            android:inputType="number" />
+            android:inputType="number"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="16dp" />
 
         <EditText
             android:id="@+id/editTextReleaseDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100px"
             android:hint="Release Date"
             android:focusable="false"
             android:cursorVisible="false"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="8dp" />
 
         <EditText
             android:id="@+id/editTextNote"
@@ -59,18 +83,9 @@
             android:layout_height="wrap_content"
             android:hint="Note"
             android:inputType="textMultiLine"
-            android:lines="3" />
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageViewPostImage"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:padding="32dp"-->
-<!--            android:background="?attr/selectableItemBackground"-->
-<!--            android:contentDescription="@string/upload_image"-->
-<!--            android:clickable="true"-->
-<!--            android:focusable="true"/>-->
+            android:lines="3"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="8dp" />
 
         <ImageView
             android:id="@+id/imageViewPostImage"
@@ -78,15 +93,17 @@
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:padding="8dp"
-            android:contentDescription="@string/upload_image" />
-
-
+            android:contentDescription="@string/upload_image"
+            android:background="@drawable/rounded_imageview"
+            android:layout_marginTop="16dp" />
 
         <Button
             android:id="@+id/buttonSubmitPost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit Post"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
             android:layout_marginTop="16dp" />
 
     </LinearLayout>

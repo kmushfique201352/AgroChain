@@ -6,14 +6,15 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_marginTop="50px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/crop_image_view"
-            android:layout_width="100px"
-            android:layout_height="100px"
+            android:layout_width="120px"
+            android:layout_height="120px"
             android:layout_margin="20px"
             android:src="@drawable/tomato" />
 
@@ -22,7 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Tomato" />
+            android:text="Tomato"
+            android:textSize="50px"
+            android:textColor="@color/black"/>
     </LinearLayout>
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -42,7 +45,8 @@
                 android:text="Crop"
                 android:textSize="18sp"
                 android:padding="16dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:background="@drawable/green_border"/>
 
             <TextView
                 android:id="@+id/textViewProtection"
@@ -52,7 +56,8 @@
                 android:text="Protection"
                 android:textSize="18sp"
                 android:padding="16dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:background="@drawable/green_border"/>
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -73,17 +78,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="50px"
-                android:padding="10px"
+                android:padding="20px"
                 android:text="নার্সারি আগে"/>
             <TextView
                 android:id="@+id/headLabel1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="20px"
                 android:text="Heading Label"/>
             <TextView
                 android:id="@+id/baseLabel1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="20px"
                 android:text="Base Label"/>
             <HorizontalScrollView
                 android:layout_width="wrap_content"

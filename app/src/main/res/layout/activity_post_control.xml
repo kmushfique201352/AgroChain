@@ -13,23 +13,27 @@
             android:id="@+id/headerSectionPostControl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/bottom_round_border"
             android:orientation="horizontal"
             android:padding="16dp">
 
             <Button
                 android:id="@+id/btnCreatePost"
-                android:layout_width="wrap_content"
+                android:layout_width="350px"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="160px"
-                android:text="Create Post" />
+                android:text="Create Post"
+                android:background="@drawable/rounded_button"
+                android:textColor="#FFFFFF"/>
 
             <Button
                 android:id="@+id/btnDeleteAll"
-                android:layout_width="wrap_content"
+                android:layout_width="350px"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Delete All" />
+                android:text="Delete All"
+                android:background="@drawable/rounded_button"
+                android:textColor="#FFFFFF"/>
 
         </LinearLayout>
 
@@ -59,7 +63,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:gravity="center"
-            android:background="#F4F4F4"
+            android:background="@drawable/top_round_border"
             android:padding="10dp"
             android:layout_alignParentBottom="true">
 
@@ -68,6 +72,8 @@
                 android:layout_width="200px"
                 android:layout_height="100px"
                 android:layout_margin="10dp"
+                android:layout_marginRight="10px"
+                android:background="@drawable/green_border"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -77,6 +83,8 @@
             <ImageView
                 android:id="@+id/fabCreatePost"
                 android:layout_width="200px"
+                android:layout_marginRight="10px"
+                android:background="@drawable/green_border"
                 android:layout_height="100px"
                 android:layout_margin="10dp"
                 android:layout_marginStart="10dp"
@@ -88,6 +96,8 @@
             <ImageView
                 android:id="@+id/imgNotification"
                 android:layout_width="200px"
+                android:layout_marginRight="10px"
+                android:background="@drawable/green_border"
                 android:layout_height="100px"
                 android:layout_margin="10dp"
                 android:src="@drawable/notification" />
@@ -97,6 +107,8 @@
                 android:layout_width="200px"
                 android:layout_height="100px"
                 android:layout_margin="10dp"
+                android:layout_marginRight="10px"
+                android:background="@drawable/green_border"
                 android:src="@drawable/profile" />
         </LinearLayout>
 

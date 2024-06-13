@@ -17,37 +17,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
+            android:textColor="@color/textColorDisabled"
             android:text="Government Offer"/>
 
         <ImageView
             android:id="@+id/freeItemImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/rounded_edittext"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/freeItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="50px"
             android:paddingTop="8dp" />
 
         <TextView
             android:id="@+id/freeItemCollectionPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="40px" />
 
         <TextView
             android:id="@+id/freeItemQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="40px" />
 
         <TextView
             android:id="@+id/freeItemNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="40px" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

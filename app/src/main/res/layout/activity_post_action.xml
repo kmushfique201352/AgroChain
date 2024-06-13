@@ -5,32 +5,58 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Post Details TextView -->
     <TextView
         android:id="@+id/tvPostDetails"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
+        android:textSize="16sp"
+        android:padding="20px"
+        android:layout_marginTop="56dp" />
 
+    <!-- User TextView -->
     <TextView
         android:id="@+id/user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textDirection="rtl" />
+        android:textDirection="rtl"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
+        android:textSize="16sp"
+        android:padding="20px"
+        android:layout_marginTop="8dp" />
 
+    <!-- Comment EditText -->
     <EditText
         android:id="@+id/etComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Add a comment" />
+        android:hint="Add a comment"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
+        android:padding="20px"
+        android:layout_marginTop="8dp" />
 
+    <!-- Send Warning Button -->
     <Button
         android:id="@+id/btnWarning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send Warning" />
+        android:text="Send Warning"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="66dp" />
 
+    <!-- Request Delete Button -->
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Request Delete" />
+        android:text="Request Delete"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="8dp" />
+
 </LinearLayout>

@@ -50,8 +50,8 @@ public class DetailsActivity2 extends AppCompatActivity {
         recyclerViewPesticides.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewPesticides.setAdapter(pesticideAdapter);
 
-        loadProducts("PRODUCT_MARKET", fertilizerList, fertilizerAdapter, "BAAL");
-        loadProducts("PRODUCT_MARKET", pesticideList, pesticideAdapter, "WOW");
+        loadProducts("PRODUCT_MARKET", fertilizerList, fertilizerAdapter, "UPL");
+        loadProducts("PRODUCT_MARKET", pesticideList, pesticideAdapter, "KKL");
 
 
 

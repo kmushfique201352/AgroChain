@@ -8,34 +8,88 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
     <style>
-        #notificationSidebar {
-            position: fixed;
-            right: 0;
-            top: 0;
-            width: 300px;
-            height: 100%;
-            background-color: #f4f4f4;
-            overflow: auto;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+
+        h1 {
+            color: #008000; /* Green heading */
+        }
+
+        form {
+            background-color: #fff; /* White background for the form */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            max-width: 600px; /* Limit form width */
+            margin: 0 auto; /* Center the form horizontally */
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
             padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px; /* Rounded corners for form fields */
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
         }
-        #govForm {
-            margin-right: 310px; /* Added space for the sidebar */
+
+        button[type="button"] {
+            background-color: #32cd32; /* Green button */
+            color: #fff; /* White text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
         }
-        img {
-            width: 100px; /* Set a fixed size for images in the notifications */
-            height: auto;
+
+        button[type="button"]:hover {
+            background-color: #228b22; /* Darker green hover */
         }
+
         .notificationItem {
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #eaeaea;
-            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #eaeaea; /* Light gray background for notifications */
+            border-radius: 5px; /* Rounded corners */
         }
+
         .notificationItem label {
             font-weight: bold;
+            color: #008000; /* Green label text */
         }
+
+        .notificationItem img {
+            display: block;
+            margin-top: 10px;
+            max-width: 100%;
+            border-radius: 5px; /* Rounded corners for images */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Image shadow */
+        }
+
         .notificationItem button {
-            margin-top: 5px;
+            margin-top: 10px;
+            background-color: #ff4500; /* Red button */
+            color: #fff; /* White text */
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+        }
+
+        .notificationItem button:hover {
+            background-color: #d32f2f; /* Darker red hover */
         }
     </style>
 </head>

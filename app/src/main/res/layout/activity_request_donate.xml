@@ -9,6 +9,8 @@
         android:id="@+id/imageViewSelect"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
         android:onClick="selectImage" />
 
     <EditText
@@ -16,26 +18,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter name"
-        android:inputType="text" />
+        android:inputType="text"
+        android:padding="20px"
+        android:layout_marginTop="20px"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"/>
 
     <EditText
         android:id="@+id/editTextQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter quantity"
-        android:inputType="number" />
+        android:inputType="number"
+        android:padding="20px"
+        android:layout_marginTop="20px"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"/>
 
     <EditText
         android:id="@+id/editTextNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter note"
-        android:inputType="textMultiLine" />
+        android:padding="20px"
+        android:layout_marginTop="20px"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"/>
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:onClick="submitRequest" />
+        android:layout_marginTop="67px"
+        android:onClick="submitRequest"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"/>
 </LinearLayout>

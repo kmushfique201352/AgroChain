@@ -16,6 +16,8 @@
         <ImageView
             android:id="@+id/imageViewNews"
             android:layout_width="130dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/rounded_edittext"
             android:layout_height="130dp"
             android:scaleType="centerCrop" />
 
@@ -42,14 +44,20 @@
 
             <Button
                 android:id="@+id/editButton"
+                android:layout_marginTop="20px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rounded_button"
                 android:text="Edit" />
 
             <Button
                 android:id="@+id/deleteButton"
+                android:layout_marginTop="20px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rounded_button"
                 android:text="Delete" />
         </LinearLayout>
     </LinearLayout>

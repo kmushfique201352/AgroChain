@@ -23,7 +23,9 @@
             android:layout_height="wrap_content"
             android:hint="NID/Birth Certificate No."
             android:inputType="number"
-            android:visibility="visible"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E"/>
 
         <EditText
             android:id="@+id/editTextProductDetails"
@@ -31,7 +33,9 @@
             android:layout_height="wrap_content"
             android:hint="Product Details/Sell Type"
             android:inputType="text"
-            android:visibility="visible"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E"/>
 
         <EditText
             android:id="@+id/editTextSellSize"
@@ -39,7 +43,9 @@
             android:layout_height="wrap_content"
             android:hint="Sell Size"
             android:inputType="text"
-            android:visibility="visible"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E"/>
 
         <EditText
             android:id="@+id/editTextAdminPosition"
@@ -47,7 +53,9 @@
             android:layout_height="wrap_content"
             android:hint="Administrative Position"
             android:inputType="text"
-            android:visibility="visible"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E"/>
 
         <EditText
             android:id="@+id/editTextSupervisor"
@@ -55,27 +63,37 @@
             android:layout_height="wrap_content"
             android:hint="Supervisor"
             android:inputType="text"
-            android:visibility="visible"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E"/>
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <EditText
             android:id="@+id/editTextConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <Button
             android:id="@+id/buttonCompleteRegistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Complete Registration"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
             android:layout_marginTop="16dp" />
 
     </LinearLayout>

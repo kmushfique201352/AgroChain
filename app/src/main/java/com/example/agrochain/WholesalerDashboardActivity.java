@@ -69,7 +69,7 @@ public class WholesalerDashboardActivity extends AppCompatActivity {
         layoutPost = findViewById(R.id.layoutPosts);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         filterButton = findViewById(R.id.filterButton);
-        Button newsBtn=findViewById(R.id.newsButton);
+        ImageView newsBtn=findViewById(R.id.newsButton);
         View postView = LayoutInflater.from(this).inflate(R.layout.item_post_for_who, layoutPost, false);
 
         swipeRefreshLayout.setOnRefreshListener(() -> loadPosts());
@@ -296,7 +296,7 @@ public class WholesalerDashboardActivity extends AppCompatActivity {
         layoutPost.addView(postView);
     }
     private String formatPostDetails(QueryDocumentSnapshot postSnapshot, String userAddress) {
-        return "Product: " + postSnapshot.getString("product") + "\n" +
+        return "Product: " + postSnapshot.getString("category") + "\n" +
                 "Price: " + postSnapshot.getString("price") + "\n" +
                 "Quantity: " + postSnapshot.getString("quantity") + "\n" +
                 "Release Date: " + postSnapshot.getString("releaseDate") + "\n" +

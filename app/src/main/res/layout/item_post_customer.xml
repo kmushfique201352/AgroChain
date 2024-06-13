@@ -9,13 +9,19 @@
         android:id="@+id/postImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="50px"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"/>
 
     <TextView
         android:id="@+id/postDetails"
         android:layout_width="match_parent"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
         android:layout_height="wrap_content"
         android:textSize="16sp"
+        android:padding="20px"
         android:paddingTop="8dp" />
 
     <Button
@@ -23,5 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="BUY"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"/>
 </LinearLayout>

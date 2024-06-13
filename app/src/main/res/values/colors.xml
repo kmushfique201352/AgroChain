@@ -10,4 +10,10 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="textColorEnabled">#000000</color>
     <color name="textColorDisabled">#FA8888</color>
+
+    <color name="background_color">#FFFFFF</color>
+    <color name="text_color">#000000</color>
+    <color name="subtext_color">#888888</color>
+    <color name="button_text_color">#000000</color>
+    <color name="button_background_color">#FFC107</color>
 </resources>

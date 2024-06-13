@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="StrikethroughTextView">
+        <attr name="strikethrough" format="boolean"/>
+    </declare-styleable>
+</resources>

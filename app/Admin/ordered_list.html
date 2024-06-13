@@ -64,9 +64,58 @@
     
 
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5; /* Add a light background color */
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        button#pdfButton {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #a3e8a3; /* Change button color to a shade of blue */
+            color: #333; /* Dark text color */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button#pdfButton:hover {
+            background-color: #c1f0c1; /* Darker shade of blue on hover */
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white; /* White background for the table */
+            border-radius: 5px;
+            overflow: hidden; /* Ensure content doesn't overflow */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        
+        th, td {
+            padding: 12px; /* Increase padding for better spacing */
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        thead {
+            background-color: #a3e8a3; /* Header background color */
+            color: black;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row background color */
+        }
+        
+        
     </style>
 </head>
 <body>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/white"
     tools:context=".MemoActivity">
 
     <ImageView
@@ -12,6 +13,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -22,6 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Product Name"
+        android:textColor="@color/black"
+
         app:layout_constraintStart_toEndOf="@id/productImageView"
         app:layout_constraintTop_toTopOf="@id/productImageView" />
 
@@ -31,6 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Brand Name"
+        android:textColor="@color/black"
+
         app:layout_constraintStart_toStartOf="@id/productNameTextView"
         app:layout_constraintTop_toBottomOf="@id/productNameTextView" />
 
@@ -40,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Price $0.00"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@id/productBrandTextView"
         app:layout_constraintTop_toBottomOf="@id/productBrandTextView" />
 
@@ -49,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Old Price $0.00"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/productPriceTextView"
         app:layout_constraintStart_toEndOf="@id/productPriceTextView"
         app:layout_constraintTop_toTopOf="@id/productPriceTextView" />
@@ -59,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Size"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@id/productPriceTextView"
         app:layout_constraintTop_toBottomOf="@id/productPriceTextView" />
 
@@ -67,6 +77,8 @@
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:text="-"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_red"
         app:layout_constraintTop_toBottomOf="@id/productSizeTextView"
         app:layout_constraintEnd_toStartOf="@id/quantityTextView"
         app:layout_constraintBottom_toBottomOf="@id/quantityTextView" />
@@ -77,6 +89,7 @@
         android:layout_height="48dp"
         android:text="1"
         android:gravity="center"
+        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="@id/decreaseButton"
         app:layout_constraintBottom_toBottomOf="@id/decreaseButton"
         app:layout_constraintEnd_toStartOf="@id/increaseButton" />
@@ -86,6 +99,8 @@
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:text="+"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_green"
         app:layout_constraintTop_toTopOf="@id/quantityTextView"
         app:layout_constraintBottom_toBottomOf="@id/quantityTextView"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -93,9 +108,10 @@
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100px"
         android:layout_marginTop="52dp"
         android:hint="Name"
+        android:background="@drawable/rounded_edittext"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/productSizeTextView" />
@@ -103,9 +119,10 @@
     <EditText
         android:id="@+id/mobileEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100px"
         android:layout_marginTop="16dp"
         android:hint="Mobile Number"
+        android:background="@drawable/rounded_edittext"
         app:layout_constraintStart_toStartOf="@id/nameEditText"
         app:layout_constraintEnd_toEndOf="@id/nameEditText"
         app:layout_constraintTop_toBottomOf="@id/nameEditText" />
@@ -113,9 +130,10 @@
     <EditText
         android:id="@+id/addressEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100px"
         android:layout_marginTop="16dp"
         android:hint="Address"
+        android:background="@drawable/rounded_edittext"
         app:layout_constraintStart_toStartOf="@id/mobileEditText"
         app:layout_constraintEnd_toEndOf="@id/mobileEditText"
         app:layout_constraintTop_toBottomOf="@id/mobileEditText" />
@@ -127,6 +145,7 @@
         android:layout_marginTop="32dp"
         android:text="Total Price: TK. 0.00"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_edittext"
         app:layout_constraintTop_toBottomOf="@id/addressEditText" />
 
     <Button
@@ -134,9 +153,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Proceed"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalPriceTextView" />
+        app:layout_constraintTop_toBottomOf="@id/totalPriceTextView"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

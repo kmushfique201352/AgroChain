@@ -12,6 +12,9 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
+        android:layout_margin="20px"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -21,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:textSize="45px"
+        android:textSize="75px"
         android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintTop_toBottomOf="@id/productImageDetail"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -49,6 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:textSize="20px"
+        app:strikethrough="true"
         android:textAppearance="?attr/textAppearanceBody2"
         app:layout_constraintTop_toTopOf="@id/productPriceDetail"
         app:layout_constraintLeft_toRightOf="@id/productPriceDetail"/>
@@ -57,9 +62,9 @@
         android:id="@+id/productSizeDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/productPriceDetail"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productBrandDetail" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
@@ -79,9 +84,12 @@
 
     <Button
         android:id="@+id/buyButton"
-        android:layout_width="0dp"
+        android:layout_width="500px"
         android:layout_height="wrap_content"
         android:text="BUY"
+        android:layout_marginBottom="500px"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>

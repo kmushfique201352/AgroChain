@@ -44,6 +44,71 @@
             });
         }
     </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; /* Light gray background */
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            max-width: 400px; /* Limit form width for better readability */
+            margin: 0 auto; /* Center the form horizontally */
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            width: 95%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 4px;
+        }
+        
+        button[type="submit"] {
+            background-color: #c1f0c1; /* Blue button color */
+            color: #333; /* White text color */
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #a3e8a3; /* Darker blue on hover */
+        }
+        
+        .alert {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        
+        .alert.success {
+            background-color: #4CAF50; /* Green background for success message */
+            color: white;
+        }
+        
+        .alert.error {
+            background-color: #f44336; /* Red background for error message */
+            color: white;
+        }
+        
+    </style>
 </head>
 <body>
     <h1>Add New Product</h1>

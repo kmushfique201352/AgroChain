@@ -54,10 +54,10 @@ public class GovernmentDashboardActivity extends AppCompatActivity {
         layoutPosts = findViewById(R.id.layoutPosts);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         filterButton = findViewById(R.id.filterButton);
-        Button newsBtn=findViewById(R.id.newsButton);
+        ImageView newsBtn=findViewById(R.id.newsButton);
         View postView = LayoutInflater.from(this).inflate(R.layout.item_post_for_gov, layoutPosts, false);
         actionButton = postView.findViewById(R.id.actionButton);
-        Button postButton = findViewById(R.id.postButton);
+        ImageView postButton = findViewById(R.id.postButton);
         Button donateButton=findViewById(R.id.donateButton);
 
         swipeRefreshLayout.setOnRefreshListener(() -> loadPosts());
@@ -186,7 +186,7 @@ private void loadPosts() {
         layoutPosts.addView(postView);
     }
     private String formatPostDetails(QueryDocumentSnapshot postSnapshot, String userAddress) {
-        return "com.example.agrochain.Product: " + postSnapshot.getString("product") + "\n" +
+        return "Product: " + postSnapshot.getString("category") + "\n" +
                 "Price: " + postSnapshot.getString("price") + "\n" +
                 "Quantity: " + postSnapshot.getString("quantity") + "\n" +
                 "Release Date: " + postSnapshot.getString("releaseDate") + "\n" +

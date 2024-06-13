@@ -8,21 +8,26 @@
     <Spinner
         android:id="@+id/spinnerDivision"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFA726"/>
 
     <Spinner
         android:id="@+id/spinnerDistrict"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFA726"/>
 
     <Spinner
         android:id="@+id/spinnerUpazila"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFA726"/>
 
     <Button
         android:id="@+id/btnApplyFilter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Apply Filter" />
+        android:text="Apply Filter"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"/>
 </LinearLayout>

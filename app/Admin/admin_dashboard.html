@@ -10,23 +10,76 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <style>
+        .sidebar {
+            float: left;
+            width: 20%;
+            background-color: #e6f7e2; /* Light green background */
+            padding: 20px;
+        }
+        
+        .sidebar button {
+            display: block;
+            margin-bottom: 10px;
+            background-color: #c1f0c1; /* Light green button background */
+            color: #333; /* Dark text color */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .sidebar button:hover {
+            background-color: #a3e8a3; /* Darker green hover background */
+        }
+        
+        .content {
+            float: left;
+            width: 80%;
+            padding: 20px;
+            background-color: #fff; /* White content background */
+        }
+        
+        /* Table styles */
+        #usersTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        #usersTable th,
+        #usersTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        #usersTable th {
+            background-color: #f2f2f2;
+        }
+        
+        /* News box styles */
         .news-box {
             border: 1px solid #ccc;
             margin: 10px;
             padding: 10px;
             box-shadow: 0 0 10px #ccc;
+            background-color: #ffffcc; /* Yellow background */
         }
+        
         .news-title {
             font-size: 18px;
             font-weight: bold;
+            color: #333; /* Dark text color */
         }
+        
         .news-content {
             margin-top: 10px;
+            color: #666; /* Medium dark text color */
         }
+        
         .news-image {
             max-width: 100%;
             height: auto;
         }
+        
     </style>
 </head>
 <body>

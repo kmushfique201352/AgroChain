@@ -10,17 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
+        android:layout_marginTop="50px"
         android:textSize="40px"
         android:textAppearance="?attr/textAppearanceHeadline6" />
 
     <TextView
         android:id="@+id/tvPostProduct"
+        android:layout_marginTop="10px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Product" />
 
     <TextView
         android:id="@+id/tvPostPrice"
+        android:layout_marginTop="10px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Price" />
@@ -28,6 +31,7 @@
     <TextView
         android:id="@+id/tvPostQuantity"
         android:layout_width="match_parent"
+        android:layout_marginTop="10px"
         android:layout_height="wrap_content"
         android:text="Quantity" />
 
@@ -35,36 +39,46 @@
         android:id="@+id/tvPostReleaseDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
         android:text="Release Date" />
 
     <TextView
         android:id="@+id/tvPostNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="50px"
         android:text="Note" />
 
     <ImageView
         android:id="@+id/imgPostImage"
         android:layout_width="match_parent"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rounded_edittext"
         android:layout_height="200dp"
         android:scaleType="centerCrop" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
         android:orientation="horizontal"
         android:gravity="end">
 
         <Button
             android:id="@+id/btnEditPost"
-            android:layout_width="wrap_content"
+            android:layout_width="300px"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
             android:text="Edit Post" />
 
         <Button
             android:id="@+id/btnDeletePost"
-            android:layout_width="wrap_content"
+            android:layout_width="300px"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
             android:text="Delete Post"
             android:layout_marginStart="16dp"/>
     </LinearLayout>

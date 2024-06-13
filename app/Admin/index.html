@@ -4,11 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="style.css">
+    
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <style>
+        /* style.css */
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+/* Login section styling */
+#login-section {
+    background-color: #fff; /* White background for login section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 20px;
+    max-width: 400px; /* Limit width to prevent stretching */
+    margin: 50px auto; /* Center horizontally */
+}
+
+#login-section input[type="text"],
+#login-section input[type="password"],
+#loginButton {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#loginButton {
+    background-color: #c1f0c1; /* Blue button background */
+    color: #333; /* White text color */
+    border: none;
+    width:100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+#loginButton:hover {
+    background-color: #a3e8a3; /* Darker blue on hover */
+}
+
+
+    </style>
 </head>
 <body>
     <div id="login-section">

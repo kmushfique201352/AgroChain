@@ -14,84 +14,108 @@
             android:id="@+id/imgEditProfilePicture"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/imgbtn11"
             android:layout_gravity="center"
-            android:contentDescription="@string/edit_profile_picture" />
+            android:textColor="@android:color/black"
+            android:background="@drawable/rounded_edittext"
+            android:contentDescription="@string/edit_profile_picture"
+            android:src="@drawable/default_profile" />
 
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <EditText
             android:id="@+id/editTextAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/age"
-            android:inputType="number" />
+            android:inputType="number"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <Spinner
             android:id="@+id/spinnerGender"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFA726" />
 
         <EditText
             android:id="@+id/editTextDivision"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/division"
-            android:inputType="text" />
+            android:inputType="text"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <EditText
             android:id="@+id/editTextDistrict"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/district"
-            android:inputType="text" />
+            android:inputType="text"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <EditText
             android:id="@+id/editTextUpazila"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/upazila"
-            android:inputType="text" />
+            android:inputType="text"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
+
         <EditText
             android:id="@+id/editTextPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phone"
-            android:inputType="number" />
+            android:inputType="number"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <EditText
             android:id="@+id/editTextNID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nid"
-            android:inputType="number" />
+            android:inputType="number"
+            android:backgroundTint="#FFA726"
+            android:textColorHint="#9E9E9E" />
 
         <Button
             android:id="@+id/buttonUpdateProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/update_profile" />
+            android:text="@string/update_profile"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp" />
 
         <Button
             android:id="@+id/buttonDeleteProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/delete_profile"
-            android:layout_marginTop="16dp"/>
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp" />
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="360px"
-            android:text="Logout" />
+            android:text="Logout"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/round_button_out"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 </ScrollView>

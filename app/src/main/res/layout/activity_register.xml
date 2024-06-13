@@ -3,67 +3,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"
+    android:layout_marginTop="-20px">
 
+    <!-- Title TextView -->
     <TextView
         android:id="@+id/textViewSelectUserType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select User Type"
-        android:textColor="@color/black" />
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
 
+    <!-- User Type Spinner -->
     <Spinner
         android:id="@+id/spinnerUserType"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
+    <!-- Name EditText -->
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFA726"
+        android:textColorHint="#9E9E9E"/>
 
+    <!-- Age EditText -->
     <EditText
         android:id="@+id/editTextAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Age"
-        android:inputType="number" />
+        android:inputType="number"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFA726"
+        android:textColorHint="#9E9E9E"/>
 
+    <!-- Gender Spinner -->
     <Spinner
         android:id="@+id/spinnerGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="Gender"/>
+        android:layout_marginTop="8dp" />
 
+    <!-- Phone EditText -->
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Phone"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFA726"
+        android:textColorHint="#9E9E9E"/>
 
+    <!-- Division Spinner -->
     <Spinner
         android:id="@+id/spinnerDivision"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
 
+    <!-- District Spinner -->
     <Spinner
         android:id="@+id/spinnerDistrict"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
+    <!-- Upazila Spinner -->
     <Spinner
         android:id="@+id/spinnerUpazila"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
+    <!-- Next Button -->
     <Button
         android:id="@+id/buttonNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Next" />
+        android:text="Next"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="96dp" />
 
 </LinearLayout>

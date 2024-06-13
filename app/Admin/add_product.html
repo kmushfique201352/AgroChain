@@ -4,7 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Apply styles to the h1 element */
+    h1 {
+    text-align: center;
+    color: #333; /* Dark grey color */
+    }
+
+    /* Apply styles to the form element */
+    form {
+    max-width: 400px;
+    margin: 0 auto; /* Center the form horizontally */
+    }
+
+    /* Apply styles to the input elements */
+    input[type="text"],
+    textarea,
+    input[type="file"],
+    button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    }
+
+    /* Apply styles to the submit button */
+    button {
+    background-color: #c1f0c1; /* Blue background color */
+    color: #333; /* White text color */
+    width:105%;
+    cursor: pointer; /* Add cursor pointer on hover */
+    }
+
+    /* Change button color on hover */
+    button:hover {
+    background-color: #a3e8a3; /* Darker blue color on hover */
+    }
+
+    /* Apply styles to the textarea element */
+    textarea {
+    height: 100px; /* Set a fixed height */
+    }
+
+    /* Style the input[type="file"] element */
+    input[type="file"] {
+    cursor: pointer; /* Add cursor pointer on hover */
+    }
+
+    /* Hide the default file input text */
+    input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+    }
+
+    /* Apply styles to the form inputs when they are focused */
+    input:focus,
+    textarea:focus {
+    border-color: #007bff; /* Blue border color when focused */
+    outline: none; /* Remove the default focus outline */
+    }
+
+    </style>
 </head>
 <body>
     <h1>Add New Product</h1>
